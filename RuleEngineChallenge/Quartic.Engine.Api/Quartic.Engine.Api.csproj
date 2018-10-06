@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Quartic.Engine.Business\Quartic.Engine.Business.csproj" />
+    <ProjectReference Include="..\Quartic.Engine.Dto\Quartic.Engine.Dto.csproj" />
+    <ProjectReference Include="..\Quartic.Engine.Logging\Quartic.Engine.Logging.csproj" />
+  </ItemGroup>
+
+</Project>

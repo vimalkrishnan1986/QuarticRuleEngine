@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Host", "Quartic.Engine.Host\Quartic.Engine.Host.csproj", "{8E4E9807-E082-41FA-8D89-37350E4D3A22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Api", "Quartic.Engine.Api\Quartic.Engine.Api.csproj", "{5B11D311-CCF3-40C5-BB21-EF26DB161F59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Business", "Quartic.Engine.Business\Quartic.Engine.Business.csproj", "{7ACCAA90-8EA2-4A9D-BD4E-C6243B854E37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Logging", "Quartic.Engine.Logging\Quartic.Engine.Logging.csproj", "{AFE42817-4D86-4DB2-85DD-E5DE0D255B5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Dto", "Quartic.Engine.Dto\Quartic.Engine.Dto.csproj", "{73298C58-939C-4733-8249-55AECE1BB54E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E4E9807-E082-41FA-8D89-37350E4D3A22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E4E9807-E082-41FA-8D89-37350E4D3A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E4E9807-E082-41FA-8D89-37350E4D3A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E4E9807-E082-41FA-8D89-37350E4D3A22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B11D311-CCF3-40C5-BB21-EF26DB161F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B11D311-CCF3-40C5-BB21-EF26DB161F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B11D311-CCF3-40C5-BB21-EF26DB161F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B11D311-CCF3-40C5-BB21-EF26DB161F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ACCAA90-8EA2-4A9D-BD4E-C6243B854E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ACCAA90-8EA2-4A9D-BD4E-C6243B854E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ACCAA90-8EA2-4A9D-BD4E-C6243B854E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ACCAA90-8EA2-4A9D-BD4E-C6243B854E37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFE42817-4D86-4DB2-85DD-E5DE0D255B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE42817-4D86-4DB2-85DD-E5DE0D255B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE42817-4D86-4DB2-85DD-E5DE0D255B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE42817-4D86-4DB2-85DD-E5DE0D255B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73298C58-939C-4733-8249-55AECE1BB54E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73298C58-939C-4733-8249-55AECE1BB54E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73298C58-939C-4733-8249-55AECE1BB54E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73298C58-939C-4733-8249-55AECE1BB54E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F55916F-D046-439E-B26F-5AD5312B2217}
+	EndGlobalSection
+EndGlobal
