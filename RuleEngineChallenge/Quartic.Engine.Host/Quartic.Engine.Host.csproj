@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Quartic.Engine.Api\Quartic.Engine.Api.csproj" />
+  </ItemGroup>
+
 </Project>
