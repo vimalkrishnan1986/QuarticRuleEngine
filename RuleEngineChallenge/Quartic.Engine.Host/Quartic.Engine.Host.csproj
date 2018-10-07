@@ -6,7 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Quartic.Engine.Api\Quartic.Engine.Api.csproj" />
+    <ProjectReference Include="..\Quartic.Engine.Business\Quartic.Engine.Business.csproj" />
+    <ProjectReference Include="..\Quartic.Engine.Helper\Quartic.Engine.Helper.csproj" />
+    <ProjectReference Include="..\Quartic.Engine.Logging\Quartic.Engine.Logging.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

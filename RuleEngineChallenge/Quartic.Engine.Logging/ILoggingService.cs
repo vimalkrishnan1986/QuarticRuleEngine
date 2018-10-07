@@ -6,5 +6,7 @@ namespace Quartic.Engine.Logging
 {
     public interface ILoggingService
     {
+        void Log(Exception exception);
+        void Log(string message);
     }
 }

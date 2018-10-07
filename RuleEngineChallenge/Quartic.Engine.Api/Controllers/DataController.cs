@@ -1,15 +1,16 @@
-﻿using Quartic.Engine.Business.Common;
-using Quartic.Engine.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Web.Http;
+using Quartic.Engine.Business.Common;
+using Quartic.Engine.Logging;
 using Quartic.Engine.Dto;
 using System.Threading.Tasks;
 using Quartic.Engine.Api.Common;
+using Microsoft.AspNetCore.Mvc;
+using Quartic.Engine.Business.Enums;
+
 namespace Quartic.Engine.Api.Controllers
 {
-    [RoutePrefix("api/data")]
+    [Route("api/data")]
     public sealed class DataController : QuarticControllerBase
     {
         private readonly IRuleEngineService _ruleEngineService;
@@ -19,8 +20,25 @@ namespace Quartic.Engine.Api.Controllers
             _ruleEngineService = ruleEngineService ?? throw new ArgumentNullException(nameof(ruleEngineService));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Get([FromHeader]Guid correlationId)
+        {
+            LoggingService.Log($"Request has been recieved for correlationId {correlationId}");
+
+            return await Task.FromResult(Ok(new DataContainer
+            {
+                Packet = new List<Packet>()
+                { new Packet
+                {
+                    DataType = (int)DataTypes.Int,
+                    Value = "1100",
+                    Signal = "Al"
+                }
+                }
+            }));
+        }
         [HttpPost]
-        public async Task<IHttpActionResult> Post([FromBody] DataContainer container)
+        public async Task<IActionResult> Post([FromBody] DataContainer container)
         {
             string error = await ValidateContainer(container);
             if (!string.IsNullOrEmpty(error))
@@ -30,13 +48,13 @@ namespace Quartic.Engine.Api.Controllers
 
             try
             {
-                var res = await _ruleEngineService.Apply(container.Packet.ToMessage(), container.Rule.RuleId);
-                return Ok(res.ToPacket());
+                var res = await _ruleEngineService.Apply(container.Packet.ToMessages(), container.RuleId);
+                return Ok(res.ToPackets());
             }
             catch (Exception ex)
             {
                 base.HandleExcpetion(ex);
-                return InternalServerError();
+                throw;
             }
         }
 
@@ -49,9 +67,9 @@ namespace Quartic.Engine.Api.Controllers
                 return await Task.FromResult(message);
             }
 
-            if (dataContainer.Rule == null)
+            if (dataContainer.RuleId <= 0)
             {
-                message = $"Value Cannot be Null {nameof(dataContainer.Rule)}";
+                message = $" {nameof(dataContainer.RuleId)} Should be a valid integer >0 ";
                 return await Task.FromResult(message);
             }
 

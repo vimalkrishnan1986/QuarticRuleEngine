@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Host", "Quartic.Engine.Host\Quartic.Engine.Host.csproj", "{8E4E9807-E082-41FA-8D89-37350E4D3A22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quartic.Engine.Host", "Quartic.Engine.Host\Quartic.Engine.Host.csproj", "{8E4E9807-E082-41FA-8D89-37350E4D3A22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Api", "Quartic.Engine.Api\Quartic.Engine.Api.csproj", "{5B11D311-CCF3-40C5-BB21-EF26DB161F59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quartic.Engine.Api", "Quartic.Engine.Api\Quartic.Engine.Api.csproj", "{5B11D311-CCF3-40C5-BB21-EF26DB161F59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Business", "Quartic.Engine.Business\Quartic.Engine.Business.csproj", "{7ACCAA90-8EA2-4A9D-BD4E-C6243B854E37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quartic.Engine.Business", "Quartic.Engine.Business\Quartic.Engine.Business.csproj", "{7ACCAA90-8EA2-4A9D-BD4E-C6243B854E37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Logging", "Quartic.Engine.Logging\Quartic.Engine.Logging.csproj", "{AFE42817-4D86-4DB2-85DD-E5DE0D255B5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quartic.Engine.Logging", "Quartic.Engine.Logging\Quartic.Engine.Logging.csproj", "{AFE42817-4D86-4DB2-85DD-E5DE0D255B5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Dto", "Quartic.Engine.Dto\Quartic.Engine.Dto.csproj", "{73298C58-939C-4733-8249-55AECE1BB54E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quartic.Engine.Dto", "Quartic.Engine.Dto\Quartic.Engine.Dto.csproj", "{73298C58-939C-4733-8249-55AECE1BB54E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quartic.Engine.Helper", "Quartic.Engine.Helper\Quartic.Engine.Helper.csproj", "{C65D8FF2-9357-483C-83C1-1804B77E22AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Data", "Quartic.Engine.Data\Quartic.Engine.Data.csproj", "{0362D3AF-C97E-4384-9226-3BF79779514A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{73298C58-939C-4733-8249-55AECE1BB54E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73298C58-939C-4733-8249-55AECE1BB54E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73298C58-939C-4733-8249-55AECE1BB54E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C65D8FF2-9357-483C-83C1-1804B77E22AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C65D8FF2-9357-483C-83C1-1804B77E22AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C65D8FF2-9357-483C-83C1-1804B77E22AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C65D8FF2-9357-483C-83C1-1804B77E22AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0362D3AF-C97E-4384-9226-3BF79779514A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0362D3AF-C97E-4384-9226-3BF79779514A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0362D3AF-C97E-4384-9226-3BF79779514A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0362D3AF-C97E-4384-9226-3BF79779514A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

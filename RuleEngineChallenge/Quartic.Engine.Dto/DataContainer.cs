@@ -6,7 +6,7 @@ namespace Quartic.Engine.Dto
 {
     public class DataContainer
     {
-        public Packet Packet { get; set; }
-        public Rule Rule { get; set; }
+        public List<Packet> Packet { get; set; }
+        public int RuleId { get; set; }
     }
 }

@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Quartic.Engine.Data\Quartic.Engine.Data.csproj" />
+    <ProjectReference Include="..\Quartic.Engine.Logging\Quartic.Engine.Logging.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,10 +1,12 @@
-﻿using System.Web.Http;
+﻿using System;
 using Quartic.Engine.Logging;
-using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Quartic.Engine.Api.Controllers
 {
-    public abstract class QuarticControllerBase : ApiController
+    [ApiController]
+    [Produces("application/json")]
+    public abstract class QuarticControllerBase : ControllerBase
     {
         protected ILoggingService LoggingService { get; private set; }
 
@@ -14,6 +16,7 @@ namespace Quartic.Engine.Api.Controllers
         }
         protected void HandleExcpetion(Exception exception)
         {
+            LoggingService.Log(exception);
 
         }
     }

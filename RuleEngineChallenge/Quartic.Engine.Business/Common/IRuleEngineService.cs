@@ -1,10 +1,11 @@
-﻿using Quartic.Engine.Business.Models;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Quartic.Engine.Business.Models;
 
 namespace Quartic.Engine.Business.Common
 {
     public interface IRuleEngineService
     {
-        Task<Message> Apply(Message message, int ruleId);
+        Task<List<Message>> Apply(List<Message> message, int ruleId);
     }
 }
