@@ -18,39 +18,38 @@ namespace Quartic.Engine.Business.Core
         private readonly IRepository<RuleExpression> _repository;
         private readonly int _id;
 
-
         public Func<Message, bool> Expression
         {
             get
             {
-                return CreateExpression(_id);
+                return CreateExpression();
             }
-
         }
-        private Func<Message, bool> CreateExpression(int id)
+
+        private Func<Message, bool> CreateExpression()
         {
             if (_expressionCache == null)
             {
                 _loggingService.Log($"Initializing Expression Cache");
                 _expressionCache = new Dictionary<int, Func<Message, bool>>();
             }
-            _loggingService.Log($"Fetching the expression for ruleid {id}");
+            _loggingService.Log($"Fetching the expression for ruleid {_id}");
             string strExpression = _repository.Get(p => p.Id == _id).Expression;
-            if (!_expressionCache.ContainsKey(id))
+            if (!_expressionCache.ContainsKey(_id))
             {
-                _loggingService.Log($"Creating expression from string for ruleId {id} :Recieved expression string {strExpression}");
+                _loggingService.Log($"Creating expression from string for ruleId {_id} :Recieved expression string {strExpression}");
                 var expression = ExpressionParser.CompileRule(JsonConvert.DeserializeObject<FilterExpression>(strExpression));
-                _loggingService.Log($"Adding the expression into cache, key {id}");
-                _expressionCache.Add(id, expression);
+                _loggingService.Log($"Adding the expression into cache, key {_id}");
+                _expressionCache.Add(_id, expression);
             }
-            return _expressionCache[id];
+            return _expressionCache[_id];
         }
+
         private MessageExppression(ILoggingService loggingService, IRepository<RuleExpression> repository, int ruleId)
         {
             _loggingService = loggingService ?? throw new ArgumentNullException(nameof(loggingService));
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _id = ruleId;
-
         }
 
         public static IMessageExpression GetInstance(ILoggingService loggingService, int ruleId)

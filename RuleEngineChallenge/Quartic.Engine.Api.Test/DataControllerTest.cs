@@ -60,7 +60,7 @@ namespace Quartic.Engine.Api.Test
         [TestMethod]
         public async Task DataControllerTest_Post_InvalidData()
         {
-            int ruleId = CreateRule();
+            int ruleId = CreateSampleRuleData();
             var controller = new DataController(LoggingService, RuleEngineService);
             var result = await controller.Post(new DataContainer()
             {
@@ -81,7 +81,7 @@ namespace Quartic.Engine.Api.Test
         [TestMethod]
         public async Task DataControllerTest_Post()
         {
-            int ruleId = CreateRule();
+            int ruleId = CreateSampleRuleData();
             var controller = new DataController(LoggingService, RuleEngineService);
             var result = await controller.Post(new DataContainer()
             {
@@ -110,7 +110,7 @@ namespace Quartic.Engine.Api.Test
 
 
         }
-        private int CreateRule()
+        private int CreateSampleRuleData()
         {
 
             string xpressionstring = JsonConvert.SerializeObject(new FilterExpression
