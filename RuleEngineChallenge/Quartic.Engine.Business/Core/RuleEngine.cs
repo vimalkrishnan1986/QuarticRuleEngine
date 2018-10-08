@@ -26,7 +26,7 @@ namespace Quartic.Engine.Business.Core
             {
                 throw new ArgumentNullException(nameof(_messageExpression.Expression));
             }
-            return await Task.FromResult(inputs.Where(p => _messageExpression.Expression(p)).ToList());
+            return await Task.FromResult(inputs.Where(p => !_messageExpression.Expression(p)).ToList());
         }
 
         #region static mmethods

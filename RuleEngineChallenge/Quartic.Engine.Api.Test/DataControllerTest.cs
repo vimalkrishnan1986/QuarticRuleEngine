@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Linq.Expressions;
 using Quartic.Engine.Business.Core;
+using Quartic.Engine.Business.Enums;
 
 namespace Quartic.Engine.Api.Test
 {
@@ -98,7 +99,7 @@ namespace Quartic.Engine.Api.Test
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
-            var packets = JsonConvert.DeserializeObject<List<Packet>>(okResult.Value.ToString());
+            var packets = (List<Packet>)okResult.Value;
             Assert.IsNotNull(packets);
             Assert.IsTrue(packets.Count == 0);
         }
@@ -115,7 +116,8 @@ namespace Quartic.Engine.Api.Test
             string xpressionstring = JsonConvert.SerializeObject(new FilterExpression
             {
                 Field = "Signal",
-                Value = "AL"
+                Value = "AL",
+                Operators = Operators.Equals
             });
             var rules = new List<RuleExpression>()
             { new RuleExpression
