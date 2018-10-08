@@ -1,9 +1,8 @@
 ﻿using System;
 using Quartic.Engine.Data.Contracts;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
-using System.Xml.Serialization;
 using System.Reflection;
 using System.IO;
 namespace Quartic.Engine.Data.Storage
@@ -14,18 +13,16 @@ namespace Quartic.Engine.Data.Storage
         {
             get
             {
-                return $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}/ {typeof(T).ToString()}.xml";
+                return $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}/{typeof(T).Name}.xml";
             }
         }
         private readonly List<T> _source;
 
         public XmlDbContext()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
-            _source = (List<T>)serializer.Deserialize(new XmlTextReader(fileName));
-
+            _source = JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(fileName));
         }
-        
+
         private void CreateFile()
         {
             if (!File.Exists(fileName))

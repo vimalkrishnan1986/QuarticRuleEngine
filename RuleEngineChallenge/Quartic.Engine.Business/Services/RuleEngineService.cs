@@ -11,8 +11,6 @@ namespace Quartic.Engine.Business.Services
     public sealed class RuleEngineService : IRuleEngineService
     {
         private readonly ILoggingService _loggingService;
-        private IEngine engine;
-
         public RuleEngineService(ILoggingService loggingService)
         {
             _loggingService = loggingService ?? throw new ArgumentNullException(nameof(loggingService));
@@ -20,9 +18,21 @@ namespace Quartic.Engine.Business.Services
 
         public async Task<List<Message>> Apply(List<Message> messages, int ruleId)
         {
-            IMessageExpression messageExpression = ExpressionBuilder.GetMessageExpression(_loggingService, ruleId);
-            engine = RuleEngine.CreateEngine(_loggingService, messageExpression);
-            return await engine.Apply(messages);
+            try
+            {
+                _loggingService.Log($"Rule {ruleId} has been recieved ");
+                IMessageExpression messageExpression = MessageExppression.GetInstance(_loggingService, ruleId);
+                _loggingService.Log($"Expression has been created for ruleId {ruleId}");
+                IEngine engine = RuleEngine.Getnstance(_loggingService, messageExpression);
+                _loggingService.Log($"Rule engine has nee created for ruleId {ruleId}");
+                _loggingService.Log($"Applying the expression obatianed for ruleId {ruleId}");
+                return await engine.Apply(messages);
+            }
+            catch (Exception ex)
+            {
+                _loggingService.Log(ex);
+                throw;
+            }
         }
     }
 }

@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quartic.Engine.Helper", "Qu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Data", "Quartic.Engine.Data\Quartic.Engine.Data.csproj", "{0362D3AF-C97E-4384-9226-3BF79779514A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartic.Engine.Api.Test", "Quartic.Engine.Api.Test\Quartic.Engine.Api.Test.csproj", "{91402C22-63A7-4C11-B08A-1B6782E4CDCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{0362D3AF-C97E-4384-9226-3BF79779514A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0362D3AF-C97E-4384-9226-3BF79779514A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0362D3AF-C97E-4384-9226-3BF79779514A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91402C22-63A7-4C11-B08A-1B6782E4CDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91402C22-63A7-4C11-B08A-1B6782E4CDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91402C22-63A7-4C11-B08A-1B6782E4CDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91402C22-63A7-4C11-B08A-1B6782E4CDCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

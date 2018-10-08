@@ -31,7 +31,7 @@ namespace Quartic.Engine.Business.Core
 
         #region static mmethods
 
-        public static IEngine CreateEngine(ILoggingService loggingService, IMessageExpression messageExpression)
+        public static IEngine Getnstance(ILoggingService loggingService, IMessageExpression messageExpression)
         {
             return new RuleEngine(loggingService, messageExpression);
         }
