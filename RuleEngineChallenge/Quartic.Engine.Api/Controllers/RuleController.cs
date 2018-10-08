@@ -19,7 +19,14 @@ namespace Quartic.Engine.Api.Controllers
             _ruleBusinessService = rulebusinessService ?? throw new ArgumentNullException(nameof(rulebusinessService));
         }
 
-        public async Task<IActionResult> Post([FromBody] Rule rule)
+        /// <summary>
+        /// This is not implemented dueue to time limitation
+        /// </summary>
+        /// <param name="correlationId"></param>
+        /// <param name="rule"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> Post([FromHeader] Guid correlationId, [FromBody] Rule rule)
         {
             throw new NotImplementedException();
         }
