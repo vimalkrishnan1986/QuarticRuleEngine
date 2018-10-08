@@ -117,7 +117,7 @@ namespace Quartic.Engine.Api.Test
             {
                 Field = "Signal",
                 Value = "AL",
-                Operators = Operators.Equals
+                Operators = Operators.Equal
             });
             var rules = new List<RuleExpression>()
             { new RuleExpression
@@ -127,6 +127,10 @@ namespace Quartic.Engine.Api.Test
             } };
 
             string fullpath = FullPath(RuleExpressionFileName);
+            if (File.Exists(fullpath))
+            {
+                File.Delete(fullpath);
+            }
             File.AppendAllText(fullpath, JsonConvert.SerializeObject(rules));
             return rules.First().Id;
         }

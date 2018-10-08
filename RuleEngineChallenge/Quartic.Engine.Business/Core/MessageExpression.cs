@@ -7,33 +7,50 @@ using Quartic.Engine.Data.Repository;
 using Quartic.Engine.Data.Contracts;
 using Quartic.Engine.Data.Entities;
 using Newtonsoft.Json;
-using System.Linq;
+using System.Collections.Generic;
+
 namespace Quartic.Engine.Business.Core
 {
-    public class MessageExppression : IMessageExpression
+    public sealed class MessageExppression : IMessageExpression
     {
+        private static Dictionary<int, Func<Message, bool>> _expressionCache;
         private readonly ILoggingService _loggingService;
         private readonly IRepository<RuleExpression> _repository;
         private readonly int _id;
+
 
         public Func<Message, bool> Expression
         {
             get
             {
-                return CreateExpression(_repository.Get(p => p.Id == _id).Expression);
+                return CreateExpression(_id);
             }
 
         }
-        private Func<Message, bool> CreateExpression(string strExpression)
+        private Func<Message, bool> CreateExpression(int id)
         {
-            _loggingService.Log($"Creating expression from string for ruleId {_id} :Recieved expression string {strExpression}");
-            return ExpressionParser.Parse(JsonConvert.DeserializeObject<FilterExpression>(strExpression));
+            if (_expressionCache == null)
+            {
+                _loggingService.Log($"Initializing Expression Cache");
+                _expressionCache = new Dictionary<int, Func<Message, bool>>();
+            }
+            _loggingService.Log($"Fetching the expression for ruleid {id}");
+            string strExpression = _repository.Get(p => p.Id == _id).Expression;
+            if (!_expressionCache.ContainsKey(id))
+            {
+                _loggingService.Log($"Creating expression from string for ruleId {id} :Recieved expression string {strExpression}");
+                var expression = ExpressionParser.CompileRule(JsonConvert.DeserializeObject<FilterExpression>(strExpression));
+                _loggingService.Log($"Adding the expression into cache, key {id}");
+                _expressionCache.Add(id, expression);
+            }
+            return _expressionCache[id];
         }
         private MessageExppression(ILoggingService loggingService, IRepository<RuleExpression> repository, int ruleId)
         {
             _loggingService = loggingService ?? throw new ArgumentNullException(nameof(loggingService));
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _id = ruleId;
+
         }
 
         public static IMessageExpression GetInstance(ILoggingService loggingService, int ruleId)

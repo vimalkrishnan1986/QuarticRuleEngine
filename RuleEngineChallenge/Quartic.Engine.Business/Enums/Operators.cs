@@ -2,7 +2,7 @@
 {
     public enum Operators
     {
-        Equals = 1,
+        Equal = 1,
         LessThan,
         GreaterThan,
         LessThanOrEqals,
